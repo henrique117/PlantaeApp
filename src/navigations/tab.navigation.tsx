@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { CultivosScreen, CalcScreen, MapScreen } from "../screens";
+import { CultivosScreen, CalcScreen } from "../screens";
 import EditarPerfilNavigation from "./perfil.navigation";
 import colors from "../styles/colors";
 import { FontAwesome5, MaterialIcons, Ionicons } from "@expo/vector-icons";
@@ -20,12 +20,12 @@ export default function TabNavigation() {
       }}
     >
       <Tab.Screen
-        name="Perfil "
+        name="Perfil"
         component={EditarPerfilNavigation}
         options={{
          headerTitle: 'Plantae',
-          tabBarIcon: ({color}) => (
-            <FontAwesome5 name="user-circle" size={24} color={color}/>
+          tabBarIcon: () => (
+            <FontAwesome5 name="user-circle" size={24} color={colors.darkgray}/>
           ),
         }}
       />
@@ -35,8 +35,8 @@ export default function TabNavigation() {
         component={CultivosScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({color}) => (
-            <MaterialIcons name="grass" size={24} color={color} />
+          tabBarIcon: () => (
+            <MaterialIcons name="grass" size={24} color={colors.darkgray} />
           ),
         }}
       />
@@ -46,8 +46,8 @@ export default function TabNavigation() {
         component={CalcScreen}
         options={{
           headerShown: true,
-          tabBarIcon: ({color}) => (
-            <Ionicons name="podium" size={24} color={color} />
+          tabBarIcon: () => (
+            <Ionicons name="podium" size={24} color={colors.darkgray} />
           ),
         }}
       /> 

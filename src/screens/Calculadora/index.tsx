@@ -6,7 +6,7 @@ import { CalcComp } from "../../components"
 
 export default function Calculadora() {
   return (
-      <View style={styles.container}>
+      <View style={[styles.container]}>
           <ScrollView>
             <CalcComp/>
           </ScrollView>

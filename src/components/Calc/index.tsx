@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { CultivosProps } from "../../interfaces/Cultivos.interface";
+import { INutriField } from "../../interfaces/Nutrientes.interface";
 import styles from "./styles";
 import { cafe, ranking } from "../../calc/calculadora";
 import Button from "../Button";
+import { apiNutri } from "../../services/data";
 
 export default function Calc({...rest}: CultivosProps){
 
+    const [data, setData] = useState<INutriField>()
     const [retorno, setRetorno] = useState()
 
+    useEffect(() => {
+        async function loadNutri() {
+          const response = await apiNutri.index()
+          setData(response.data.data)
+        }
+        loadNutri()
+    }, [])
+
     function calc() {
-        setRetorno(ranking())
+        const rankRet = ranking(data)
+        setRetorno(rankRet)
     }
 
     return (

@@ -14,14 +14,14 @@ import { apiNutri } from "../../services/data";
 
 // const cafeS = cafe()
 // const sojaS = soja()
-const milhoS = milho()
-const feijaoS = feijao()
-const sorgoS = sorgo()
-const tomateS = tomate()
-const capimS = capim()
-const canaS = cana()
-const alhoS = alho()
-const laranjaS = laranja()
+// const milhoS = milho()
+// const feijaoS = feijao()
+// const sorgoS = sorgo()
+// const tomateS = tomate()
+// const capimS = capim()
+// const canaS = cana()
+// const alhoS = alho()
+// const laranjaS = laranja()
 
 export default function Cultivo() {
   const [data, setData] = useState<INutriField>();
@@ -60,35 +60,43 @@ export default function Cultivo() {
   }
 
   function SMilho() {
-    setRetornoMilho(milhoS[1])
+    const milhoSa = milho(data)
+    setRetornoMilho(milhoSa[1])
   }
 
   function SFeijao() {
-    setRetornoFeijao(feijaoS[1])
+    const feijaoSa = feijao(data)
+    setRetornoFeijao(feijaoSa[1])
   }
 
   function SSorgo() {
-    setRetornoSorgo(sorgoS[1])
+    const sorgoSa = sorgo(data)
+    setRetornoSorgo(sorgoSa[1])
   }
 
   function STomate() {
-    setRetornoTomate(tomateS[1])
+    const tomateSa = tomate(data)
+    setRetornoTomate(tomateSa[1])
   }
 
   function SCapim() {
-    setRetornoCapim(capimS[1])
+    const capimSa = capim(data)
+    setRetornoCapim(capimSa[1])
   }
 
   function SCana() {
-    setRetornoCana(canaS[1])
+    const canaSa = cana(data)
+    setRetornoCana(canaSa[1])
   }
 
   function SAlho() {
-    setRetornoAlho(alhoS[1])
+    const alhoSa = alho(data)
+    setRetornoAlho(alhoSa[1])
   }
 
   function SLaranja() {
-    setRetornoLaranja(laranjaS[1])
+    const laranjaSa = laranja(data)
+    setRetornoLaranja(laranjaSa[1])
   }
 
   return (
@@ -121,7 +129,7 @@ export default function Cultivo() {
       <View style={[styles.configNutri, { marginBottom: 10 }]}>
         {retornoSoja && retornoSoja.map((i) => {
           return (
-            <View>
+            <View key={i}>
               <Text key={i} style={[styles.nutriFal, styles.nutriFalText]}>{i}</Text>
             </View>
           )
@@ -172,7 +180,7 @@ export default function Cultivo() {
       <View style={[styles.configNutri, { marginBottom: 10 }]}>
         {retornoLaranja && retornoLaranja.map((i) => {
           return (
-            <View>
+            <View key={i}>
               <Text key={i} style={[styles.nutriFal, styles.nutriFalText]}>{i}</Text>
             </View>
           )
@@ -199,7 +207,7 @@ export default function Cultivo() {
       <View style={[styles.configNutri, { marginBottom: 10 }]}>
         {retornoMilho && retornoMilho.map((i) => {
           return (
-            <View>
+            <View key={i}>
               <Text key={i} style={[styles.nutriFal, styles.nutriFalText]}>{i}</Text>
             </View>
           )
@@ -224,7 +232,7 @@ export default function Cultivo() {
       <View style={[styles.configNutri, { marginBottom: 10 }]}>
         {retornoAlho && retornoAlho.map((i) => {
           return (
-            <View>
+            <View key={i}>
               <Text key={i} style={[styles.nutriFal, styles.nutriFalText]}>{i}</Text>
             </View>
           )
@@ -248,7 +256,7 @@ export default function Cultivo() {
       <View style={[styles.configNutri, { marginBottom: 10 }]}>
         {retornoFeijao && retornoFeijao.map((i) => {
           return (
-            <View>
+            <View key={i}>
               <Text key={i} style={[styles.nutriFal, styles.nutriFalText]}>{i}</Text>
             </View>
           )
@@ -273,7 +281,7 @@ export default function Cultivo() {
       <View style={[styles.configNutri, { marginBottom: 10 }]}>
         {retornoTomate && retornoTomate.map((i) => {
           return (
-            <View>
+            <View key={i}>
               <Text key={i} style={[styles.nutriFal, styles.nutriFalText]}>{i}</Text>
             </View>
           )
@@ -299,7 +307,7 @@ export default function Cultivo() {
       <View style={[styles.configNutri, { marginBottom: 10 }]}>
         {retornoCana && retornoCana.map((i) => {
           return (
-            <View>
+            <View key={i}>
               <Text key={i} style={[styles.nutriFal, styles.nutriFalText]}>{i}</Text>
             </View>
           )
